@@ -1,0 +1,21 @@
+name: release-macos
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+      - run: npm ci
+      - run: npm run tauri:build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tablescribe-macos
+          path: src-tauri/target/release/bundle

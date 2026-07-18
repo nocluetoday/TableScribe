@@ -1,0 +1,72 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "TableScribe",
+  "version": "0.1.0",
+  "identifier": "org.tablescribe.desktop",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "TableScribe",
+        "width": 1280,
+        "height": 820,
+        "minWidth": 960,
+        "minHeight": 680,
+        "resizable": true
+      }
+    ],
+    "security": {
+      "csp": null,
+      "assetProtocol": {
+        "enable": true,
+        "scope": [
+          "$HOME/Documents/TableScribe/**"
+        ]
+      }
+    },
+    "macOSPrivateApi": false
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["app", "dmg", "nsis"],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "category": "Productivity",
+    "copyright": "Copyright 2026 TableScribe contributors",
+    "shortDescription": "Local RPG session transcription",
+    "longDescription": "Record tabletop RPG sessions, transcribe them locally with whisper.cpp, and export Markdown campaign notes.",
+    "externalBin": [
+      "binaries/whisper-cli",
+      "binaries/whisper-stream"
+    ],
+    "macOS": {
+      "minimumSystemVersion": "12.0",
+      "entitlements": null,
+      "hardenedRuntime": true,
+      "providerShortName": null,
+      "signingIdentity": null,
+      "files": {},
+      "frameworks": []
+    },
+    "windows": {
+      "digestAlgorithm": "sha256",
+      "nsis": {
+        "displayLanguageSelector": true,
+        "installMode": "perMachine"
+      }
+    },
+    "resources": [],
+    "licenseFile": "../LICENSE"
+  },
+  "plugins": {}
+}

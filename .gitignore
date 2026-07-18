@@ -1,0 +1,13 @@
+node_modules/
+dist/*
+!dist/.gitkeep
+target/
+src-tauri/target/
+src-tauri/gen/
+src-tauri/binaries/whisper-cli-*
+src-tauri/binaries/whisper-stream-*
+*.log
+.DS_Store
+
+# Local working notes — not published to the repo.
+CLAUDE.md
